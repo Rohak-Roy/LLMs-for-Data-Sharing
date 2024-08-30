@@ -138,22 +138,16 @@ for category_number in range(1, 12):
         lines        = label['Lines']
         explanations = label['Explanations']
         
-        attempts_left = 3
-        try:
-            response = chain.invoke({"input": code})
-            response = response[7:-3]
-            response_json = json.loads(response)
-
-        except Exception as e:
-            print(f'Error Message= {e}\n Attempts Left= {attempts_left}')
-            attempts_left -= 1
-
-            if attempts_left <= 0:
+        while True:
+            try:
                 response = chain.invoke({"input": code})
                 response = response[7:-3]
                 response_json = json.loads(response)
-            else:
-                continue
+                break
+
+            except Exception as e:
+                print(f'Error Message= {e}')
+                pass
         
         with open(f'detection_outputs.txt', 'a') as f:
             f.write(code)

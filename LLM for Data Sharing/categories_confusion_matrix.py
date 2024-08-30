@@ -4,7 +4,7 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classifica
 import matplotlib.pyplot as plt
 
 
-f = open('detection_results/results.json')
+f = open('results.json')
 data = json.load(f)
 
 categories = {
@@ -38,10 +38,10 @@ for category in categories:
     predictions.append(classifications)
 
 # Actual labels
-y_true = ['Timing Channels'] * 10 + ['Resource Utilization Channels'] * 10 + ['File/Log Manipulation'] * 10 + ['Model Parameters Manipulation'] * 8 + ['Model Outputs'] * 10 + ['Model Architecture Changes'] * 7 + ['Training Data Manipulation'] * 10 + ['Network Traffic Manipulation'] * 10 + ['DNS Requests or HTTP Headers'] * 10 + ['Data Embedding in Visual or Audio Artifacts'] * 8 + ['Binary Embedding'] * 9 + ['No Vulnerability Detected'] * 0
+y_true = ['Timing Channels'] * 10 + ['Resource Utilization Channels'] * 10 + ['File/Log Manipulation'] * 10 + ['Model Parameters Manipulation'] * 10 + ['Model Outputs'] * 10 + ['Model Architecture Changes'] * 10 + ['Training Data Manipulation'] * 10 + ['Network Traffic Manipulation'] * 10 + ['DNS Requests or HTTP Headers'] * 10 + ['Data Embedding in Visual or Audio Artifacts'] * 10 + ['Binary Embedding'] * 10 + ['No Vulnerability Detected'] * 0
 
 # Predicted labels 
-y_pred = ['Timing Channels'] * 10 + ['Resource Utilization Channels'] * 6 + ['File/Log Manipulation'] * 4 + ['File/Log Manipulation'] * 10 + ['File/Log Manipulation'] * 2 + ['Model Parameters Manipulation'] * 4 + ['Model Outputs'] * 2 + ['File/Log Manipulation'] * 2 + ['Model Outputs'] * 8 + ['Model Parameters Manipulation'] * 5 + ['Model Outputs'] * 1 + ['No Vulnerability Detected'] * 1 + ['File/Log Manipulation'] * 2 + ['Training Data Manipulation'] * 8 + ['Network Traffic Manipulation'] * 9 + ['DNS Requests or HTTP Headers'] * 1 + ['Network Traffic Manipulation'] * 2 + ['DNS Requests or HTTP Headers'] * 8 + ['File/Log Manipulation'] * 2 + ['Training Data Manipulation'] * 1 + ['Data Embedding in Visual or Audio Artifacts'] * 5 + ['File/Log Manipulation'] * 7 + ['Binary Embedding'] * 2
+y_pred = ['Timing Channels'] * 10 + ['Timing Channels'] * 1 + ['Resource Utilization Channels'] * 6 + ['File/Log Manipulation'] * 3 + ['File/Log Manipulation'] * 10 + ['File/Log Manipulation'] * 3 + ['Model Parameters Manipulation'] * 4 + ['Model Outputs'] * 2 + ['No Vulnerability Detected'] * 1 + ['Timing Channels'] * 1 + ['File/Log Manipulation'] * 4 + ['Model Outputs'] * 5 + ['File/Log Manipulation'] * 1 + ['Model Parameters Manipulation'] * 7 + ['No Vulnerability Detected'] * 2 + ['File/Log Manipulation'] * 1 + ['Training Data Manipulation'] * 9 + ['Network Traffic Manipulation'] * 10 + ['Network Traffic Manipulation'] * 2 + ['DNS Requests or HTTP Headers'] * 8 + ['File/Log Manipulation'] * 4 + ['Training Data Manipulation'] * 1 + ['Data Embedding in Visual or Audio Artifacts'] * 5 + ['File/Log Manipulation'] * 8 + ['Binary Embedding'] * 2 
 
 # Classes
 classes = list(categories.keys())
